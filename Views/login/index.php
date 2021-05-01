@@ -169,7 +169,7 @@
         $.ajax({
             url: "<?php echo HOME_URL; ?>/login/run",
             type: "post",
-            data: JSON.stringify({'msg': 'teste'}),
+            data: JSON.stringify({'msg': 'testee'}),
             success: function(response) {
                 alert(response);
                 //window.location.href = "<?php //echo HOME_URL; ?>///index";
