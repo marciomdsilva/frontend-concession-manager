@@ -3,6 +3,6 @@
 class classMainModel {
 
     function __construct() {
-        $this->db = new classDatabase();
+//        $this->db = new classDatabase();
     }
 }

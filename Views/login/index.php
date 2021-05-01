@@ -119,7 +119,7 @@
         <div class="col"></div>
         <div class="col">
             <!--form start-->
-            <form id="formLogin" class="form-container" action="" method="post">
+            <form id="formLogin" class="form-container" action="login/run" method="post">
                 <h1>Concession <br> Manager</h1>
                 <!--Username-->
                 <div class="form-group">
@@ -161,20 +161,18 @@
 </div>
 
 <script>
-    $("#formLogin").submit(function(e) {
-        e.preventDefault(); // avoid to execute the actual submit of the form.
-
-        var username = document.getElementById("exampleUsername1").value;
-        var password = document.getElementById("exampleInputPassword1").value;
-        var obj = '{"username" :' + username + ', "password" :' + password + '}';
+    $("#formLogin").submit(function(event) {
+        event.preventDefault(); // avoid to execute the actual submit of the form.
+        var formData = JSON.stringify(jQuery('#formLogin').serializeArray()); // store json string
+        var json = JSON.parse(formData);
 
         $.ajax({
-            url: "http://127.0.0.1:5000/login",
-            method: "POST",
-            data: obj,
-        }).done(function(data) {
-            function myFunction() {
-                alert(data);
+            url: "<?php echo HOME_URL; ?>/login/run",
+            type: "post",
+            data: JSON.stringify({'msg': 'teste'}),
+            success: function(response) {
+                alert(response);
+                //window.location.href = "<?php //echo HOME_URL; ?>///index";
             }
         });
     });
