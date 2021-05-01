@@ -6,4 +6,8 @@ class Login_model extends classMainModel {
 //        echo 'login model';
     }
 
+    public function run() {
+
+    }
+
 }

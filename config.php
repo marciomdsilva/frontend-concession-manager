@@ -6,6 +6,11 @@ define('ABSPATH', dirname(__FILE__));
 //URL da home     ----- Sempre que mudar de servidor ou ip do servidor isto tem que ser alterado -----
 define( 'HOME_URL', 'http://192.168.1.207' );
 
+// API - URL
+define( 'API_URL', 'http://127.0.0.1' );
+// API - key
+define( 'API_KEY', 'Marcio' );
+
 // Tipo de Base de Dados
 define( 'DB_TYPE', 'mysql' );
 // Nome do host da base de dados

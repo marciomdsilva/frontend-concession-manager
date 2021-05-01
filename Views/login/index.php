@@ -6,11 +6,14 @@
 
     <title>Login</title>
 
+    <link href="<?php echo HOME_URL; ?>/Includes/css/glyphicon.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="<?php echo HOME_URL; ?>/Includes/css/glyphicon.css" rel="stylesheet">
-    <!--    <link href="--><?php //echo HOME_URL; ?><!--Includes/css/style.css" rel="stylesheet">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+            integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+            crossorigin="anonymous"></script>
 
     <!--CSS que só se aplica a esta pagina-->
     <style type="text/css">
@@ -41,7 +44,8 @@
 
         .bg-login {
             /*background: url("
-        <?php echo HOME_URL; ?> Includes/img/loginbackground.jpg") no-repeat;*/
+
+        <?php echo HOME_URL; ?>  Includes/img/loginbackground.jpg") no-repeat;*/
             width: 100%;
             height: 100vh;
         }
@@ -109,25 +113,24 @@
 <!--    video-->
 <video id="videoBG" poster="poster.JPG" autoplay muted loop>
     <source src="<?php echo HOME_URL; ?>/Includes/video/waves.mp4">
-</video>
-
+</video><!---->
 <div class="container-fluid bg-login">
     <div class="row">
         <div class="col"></div>
         <div class="col">
             <!--form start-->
-            <form class="form-container" action="login/run" method="post">
-                <h1 align="center">Concession <br> Manager</h1>
-                <!--Email-->
+            <form id="formLogin" class="form-container" action="" method="post">
+                <h1>Concession <br> Manager</h1>
+                <!--Username-->
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label for="exampleUsername1">Username</label>
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><span class="glyphicon glyphicon-user"
                                                                 aria-hidden="true"></span></div>
                         </div>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="Enter email" name="username">
+                        <input type="text" class="form-control" id="exampleUsername1" aria-describedby="usernameHelp"
+                               placeholder="Enter username" name="username">
                     </div>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
@@ -155,13 +158,27 @@
         </div>
         <div class="col"></div>
     </div>
-    <!-- Este div fecha o div de content iniciado no header-->
 </div>
 
-<!--No final da pagina para a pagina fazer um load rapido-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
-        crossorigin="anonymous"></script>
+<script>
+    $("#formLogin").submit(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        var username = document.getElementById("exampleUsername1").value;
+        var password = document.getElementById("exampleInputPassword1").value;
+        var obj = '{"username" :' + username + ', "password" :' + password + '}';
+
+        $.ajax({
+            url: "http://127.0.0.1:5000/login",
+            method: "POST",
+            data: obj,
+        }).done(function(data) {
+            function myFunction() {
+                alert(data);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
