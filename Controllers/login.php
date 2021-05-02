@@ -12,17 +12,12 @@ class Login extends classMainController {
     }
 
     function run() {
-        $this->model->run();
-//        if(isset($_POST['username']) && isset($_POST['password'])) {
-//            $data = array(':username' => $_POST['username'], 'password' => $_POST['password']);
-//            echo $data[':username'] . " " . $data['password'];
-//        }
-
-
-
-        $msg = json_encode("{'msg': 'asd'}");
-//        $test = json_encode($_POST['formdata'][0]);
-
-        echo $_POST['msg'];
+        if(isset($_POST['data'])) {
+            $data = json_decode($_POST['data']);
+            $username = $data[0]->value;
+            $password = $data[1]->value;
+//            echo $username . " " . $password;
+            $this->model->run($username, $password);
+        }
     }
 }

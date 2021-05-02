@@ -163,13 +163,20 @@
 <script>
     $("#formLogin").submit(function(event) {
         event.preventDefault(); // avoid to execute the actual submit of the form.
-        var formData = JSON.stringify(jQuery('#formLogin').serializeArray()); // store json string
-        var json = JSON.parse(formData);
+
+        // var formData = JSON.stringify(jQuery($(this)).serializeArray()); // store json string
+        var data = {
+            'data': JSON.stringify(jQuery($(this)).serializeArray())
+        }
+        // var json = JSON.parse(data);
+
+
+        // console.log(data)
 
         $.ajax({
             url: "<?php echo HOME_URL; ?>/login/run",
             type: "post",
-            data: JSON.stringify({'msg': 'testee'}),
+            data: data,
             success: function(response) {
                 alert(response);
                 //window.location.href = "<?php //echo HOME_URL; ?>///index";
