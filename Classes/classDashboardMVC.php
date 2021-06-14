@@ -31,6 +31,7 @@ class classDashboardMVC
             require $file;
         } else {
             $this->error();
+            return false;
         }
 
 

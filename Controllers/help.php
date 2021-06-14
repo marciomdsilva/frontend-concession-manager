@@ -8,6 +8,7 @@ class Help extends classMainController {
     }
 
     function index() {
+        $this->view->pageTitle = 'Help';
         $this->view->render('help/index');
     }
 

@@ -9,7 +9,7 @@ define( 'HOME_URL', 'http://192.168.1.207' );
 // API - URL
 define( 'API_URL', 'http://127.0.0.1' );
 // API - key
-define( 'API_KEY', 'Marcio' );
+define( 'API_KEY', 'Marcior' );
 
 // Tipo de Base de Dados
 define( 'DB_TYPE', 'mysql' );

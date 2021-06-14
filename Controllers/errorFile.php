@@ -8,7 +8,8 @@ class ErrorFile extends classMainController {
     }
 
     function index() {
-        $this->view->msg = 'This page doesnt exist';
-        $this->view->render('error/index');
+        $this->view->pageTitle = 'Error';
+        $this->view->msg = 'Neste dia de imensurável tristeza, as nossas mais sinceras condolências. <br> <br> Encontre força e fé na memória desta pagina ente querida que partiu. Ou nunca Existiu!!';
+        $this->view->render('error/index', 1);
     }
 }

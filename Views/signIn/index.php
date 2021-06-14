@@ -128,21 +128,34 @@
         <div class="col"></div>
         <div class="col">
             <!--form start-->
-            <form id="formLogin" class="form-container" action="login/run" method="post">
+            <form id="formSignIn" class="form-container" method="post">
                 <h3>Concession Manager</h3>
-                <!--Username-->
+                <h4 class="text-center"><?php echo $this->pageTitle; ?></h4>
+                <!--Email-->
                 <div class="form-group">
-                    <label for="exampleUsername1">Username</label>
+                    <label for="exampleemail1">Email</label>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><span class="glyphicon glyphicon-envelope"
+                                                                aria-hidden="true"></span></div>
+                        </div>
+                        <input type="email" class="form-control" id="exampleemail1" aria-describedby="usernameHelp"
+                               placeholder="Inserir email" name="email">
+                    </div>
+<!--                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone-->
+<!--                        else.</small>-->
+                </div>
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="exampleUsername">Username</label>
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><span class="glyphicon glyphicon-user"
                                                                 aria-hidden="true"></span></div>
                         </div>
-                        <input type="text" class="form-control" id="exampleUsername1" aria-describedby="usernameHelp"
-                               placeholder="Enter username" name="username">
+                        <input type="text" class="form-control" id="exampleUsername" placeholder="Inserir username"
+                               name="username">
                     </div>
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
                 </div>
                 <!--Password-->
                 <div class="form-group">
@@ -152,18 +165,20 @@
                             <div class="input-group-text"><span class="glyphicon glyphicon-lock"
                                                                 aria-hidden="true"></span></div>
                         </div>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Inserir password"
                                name="password">
                     </div>
+                    <small id="passwordHelp" class="form-text text-muted">We'll never share your password with anyone
+                        else.</small>
                 </div>
                 <!--Botão-->
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+<!--                <div class="form-group form-check">-->
+<!--                    <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--                    <label class="form-check-label" for="exampleCheck1">Remember me</label>-->
+<!--                </div>-->
+                <button type="submit" class="btn btn-primary btn-block">Registar</button>
                 <div class="text-right mt-2">
-                    <a href="signIn" class="btn btn-info btn-sm">Sign In</a>
+                <a href="login" class="btn btn-info btn-sm">Login</a>
                 </div>
             </form>
             <!--form End-->
@@ -173,7 +188,7 @@
 </div>
 
 <script>
-    $("#formLogin").submit(function(event) {
+    $("#formSignIn").submit(function(event) {
         event.preventDefault(); // avoid to execute the actual submit of the form.
 
         // var formData = JSON.stringify(jQuery($(this)).serializeArray()); // store json string
@@ -186,14 +201,24 @@
         // console.log(data)
 
         $.ajax({
-            url: "<?php echo HOME_URL; ?>/login/run",
+            url: "<?php echo HOME_URL; ?>/signIn/register",
             type: "post",
             data: data,
             success: function(response) {
                 if (response) {
-                    $('.alert').remove();
-                    var tmpl = '<div class="alert alert-warning alert-dismissable">'+
-                        '<button class="close" data-dismiss="alert">&times;</button>'+ response + '</div>';
+                    var obj = JSON.parse(response)
+                    var msg = JSON.parse(obj['response'])
+                    console.log(msg)
+                    if (obj['statusCode'] === 201) {
+                        var tmpl = '<div class="alert alert-success alert-dismissable">' +
+                            '<button class="close" data-dismiss="alert">&times;</button>' + msg['message'] + '</div>';
+                    } else if (obj['statusCode'] === 500) {
+                        var tmpl = '<div class="alert alert-danger alert-dismissable">' +
+                            '<button class="close" data-dismiss="alert">&times;</button>' + msg['message'] + '</div>';
+                    } else  {
+                        var tmpl = '<div class="alert alert-warning alert-dismissable">' +
+                            '<button class="close" data-dismiss="alert">&times;</button>' + msg['message'] + '</div>';
+                    }
 
                     $('.form-container').append(tmpl)
 
@@ -201,6 +226,7 @@
                         $(".alert").slideUp(500);
                         $(".alert").alert('close');
                     });
+
                 } else {
                     window.location.href = "<?php echo HOME_URL; ?>/index";
                 }

@@ -7,5 +7,6 @@ require ABSPATH . '/Classes/classMainView.php';
 require ABSPATH . '/Classes/classDatabase.php';
 
 require ABSPATH . '/Classes/classMainJWTAuth.php';
+require ABSPATH . '/Classes/classMainSession.php';
 
 $app = new classDashboardMVC();

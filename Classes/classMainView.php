@@ -11,6 +11,7 @@ class classMainView {
             require 'Views/' . $name . '.php';
         } else {
             require 'Views/_includes/header.php';
+            require 'Views/_includes/skeleton.php';
             require 'Views/' . $name . '.php';
             require 'Views/_includes/footer.php';
         }

@@ -40,11 +40,17 @@ body {
     color: #ffffff !important;
 }
 
+/*#content {*/
+/*    position: relative;*/
+/*    min-height: 100vh;*/
+/*}*/
 /**************************CUSTOM**************************/
-#footer {
-    background-color: #343a40;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 30px;
-}
+/*#footer {*/
+/*    background-color: #343a40;*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    color: #ffffff;*/
+/*    padding: 30px;*/
+/*    margin-top: 30px;*/
+/*}*/
