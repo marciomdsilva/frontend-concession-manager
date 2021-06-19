@@ -4,7 +4,7 @@
 define('ABSPATH', dirname(__FILE__));
 
 //URL da home     ----- Sempre que mudar de servidor ou ip do servidor isto tem que ser alterado -----
-define( 'HOME_URL', 'http://192.168.1.207' );
+define( 'HOME_URL', 'http://127.0.0.1:81' );
 
 // API - URL
 define( 'API_URL', 'http://127.0.0.1' );

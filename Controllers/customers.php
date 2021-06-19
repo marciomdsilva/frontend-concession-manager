@@ -28,6 +28,11 @@ class Customers extends classMainController {
     function searchAll() {
         $response = $this->model->searchAll(classMainSession::get('accessToken'));
         $obj = json_decode($response['response']);
+        $statusCode = json_decode($response['statusCode']);
+//       Faz logout assim que a api enviar um codigo 401
+        if ($statusCode == 401) {
+            $this->logout();
+        }
 //        $keys = array_keys($obj);
 //        echo $keys[0];
 //        echo $response['response'];

@@ -65,10 +65,13 @@
                         <?php endif; ?>
                             <span class="fas fa-receipt" aria-hidden="true"></span> Reservas </a>
                         <!--------------------------------------------------------------------------------------------------------------------->
-                        <a href="../../../index.php" class="list-group-item list-group-item-action">
-                            <span class="fas fa-umbrella-beach fa-flip-horizontal" aria-hidden="true">
-                            </span> Lugares </a>
-
+                        <?php if ($this->pageTitle === 'Lugares'): ?>
+                            <a href="places" class="list-group-item list-group-item-action active bg-dark">
+                        <?php else: ?>
+                            <a href="places" class="list-group-item list-group-item-action">
+                        <?php endif; ?>
+                            <span class="fas fa-umbrella-beach fa-flip-horizontal" aria-hidden="true"></span> Lugares </a>
+                        <!--------------------------------------------------------------------------------------------------------------------->
                         <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Fora de Serviço</a>
                     </div>
                     <!--------------------------------------------------------------------------------------------------------------------->

@@ -3,7 +3,7 @@
         <div class="card-title"><?php echo $this->pageTitle; ?></div>
     </div>
     <div class="card-body">
-        teste
+        teste reservations
 
 
 
