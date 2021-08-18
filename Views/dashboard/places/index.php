@@ -14,8 +14,8 @@
 
         <table id="example" class="display nowrap" style="width:100%">
             <button id="addRow" type="button" class="btn btn-secondary mr-1"> Adicionar </button>
-            <button id="editRow" type="button" class="btn btn-secondary mr-1"> Editar Lugar Selecionado </button>
-            <button id="deleteRow" type="button" class="btn btn-danger mr-1">Eliminar Lugar Selecionado </button>
+            <button id="editRow" type="button" class="btn btn-secondary mr-1"> Editar </button>
+            <button id="deleteRow" type="button" class="btn btn-danger mr-1">Eliminar </button>
 
             <thead>
 

@@ -43,26 +43,21 @@ class Places extends classMainController {
     }
 
     function update(){
-//        Falta fazer o request na API
+        $data = json_decode($_POST['data']);
+        $place_id = $data[0]->value;
+        $place_axis_x = $data[1]->value;
+        $place_axis_y = $data[2]->value;
+
+        $jsonData = array('place_axis_x' => $place_axis_x, 'place_axis_y' => $place_axis_y);
+
+        $jsonData = json_encode($jsonData);
 
 
+        $response = $this->model->update(classMainSession::get('accessToken'), $jsonData, $place_id);
 
+        $statusCode = $response['statusCode'];
 
-//        $data = json_decode($_POST['data']);
-//        $place_id = $data[0]->value;
-//        $place_axis_x = $data[1]->value;
-//        $place_axis_y = $data[2]->value;
-//
-//        $jsonData = array('place_id' => $place_id, 'place_axis_x' => $place_axis_x, 'place_axis_y' => $place_axis_y);
-//
-//        $jsonData = json_encode($jsonData);
-//
-//
-//        $response = $this->model->update(classMainSession::get('accessToken'), $jsonData);
-//
-//        $statusCode = $response['statusCode'];
-//
-//        echo $statusCode;
+        echo $statusCode;
 
     }
 

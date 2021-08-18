@@ -71,10 +71,12 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" href="#">Márcio</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Definições</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <li class="nav-item active">
+                    <?php if (classMainSession::get('accessToken') == true) ?>
+                    <a class="dropdown-item nav-link text-danger" href="<?php echo HOME_URL; ?>/index/logout">Logout <span class="sr-only">(current)</span></a>
+                </li>
             </div>
         </div>
         <!--------------------------------------------------------------------------------------------------------------------->
@@ -82,10 +84,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">  Márcio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <?php if (classMainSession::get('accessToken') == true) ?>
-                <a class="nav-link" href="<?php echo HOME_URL; ?>/index/logout">Logout <span class="sr-only">(current)</span></a>
-            </li>
+<!--            <li class="nav-item active">-->
+<!--                --><?php //if (classMainSession::get('accessToken') == true) ?>
+<!--                <a class="nav-link" href="--><?php //echo HOME_URL; ?><!--/index/logout">Logout <span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
         </ul>
     </div>
 </nav>

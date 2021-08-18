@@ -28,7 +28,7 @@
                             <div class="col-md-3">
                                 <div class="card card-body bg-light dash-box">
                                     <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 12,334</h2>
-                                    <h4>Visitors</h4>
+                                    <h4>Acessos</h4>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
 
                 <div class="card mb-3">
                     <div class="card-header bg-secondary main-color-bg">
-                        <div class="card-title">Latest Users</div>
+                        <div class="card-title">Ultimos Funcionários</div>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover">

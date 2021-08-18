@@ -7,7 +7,7 @@ class SignIn_model extends classMainModel {
 
     public function register($email, $username, $password) {
         $obj = array("username"=>$username, "email"=>$email, "password"=>$password);
-        return $this->registerAPI('POST', 'http://192.168.1.8:5000/register', json_encode($obj));
+        return $this->registerAPI('POST', API_URL . 'register', json_encode($obj));
     }
 
 }

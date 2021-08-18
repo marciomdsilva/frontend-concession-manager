@@ -9,7 +9,7 @@ class SignIn extends classMainController {
     }
 
     function index() {
-        $this->view->pageTitle = 'Sign In';
+        $this->view->pageTitle = 'Registar';
         $this->view->render('signIn/index', 1);
     }
 

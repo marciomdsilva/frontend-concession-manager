@@ -7,7 +7,7 @@ define('ABSPATH', dirname(__FILE__));
 define( 'HOME_URL', 'http://127.0.0.1:81' );
 
 // API - URL
-define( 'API_URL', 'http://127.0.0.1' );
+define( 'API_URL', 'http://127.0.0.1:5000/' );
 // API - key
 define( 'API_KEY', 'Marcior' );
 

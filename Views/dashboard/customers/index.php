@@ -14,8 +14,8 @@
 
         <table id="example" class="display nowrap" style="width:100%">
             <button id="addRow" type="button" class="btn btn-secondary mr-1"> Adicionar </button>
-            <button id="editRow" type="button" class="btn btn-secondary mr-1"> Editar Cliente Selecionado </button>
-            <button id="deleteRow" type="button" class="btn btn-danger mr-1">Eliminar Cliente Selecionado </button>
+            <button id="editRow" type="button" class="btn btn-secondary mr-1"> Editar </button>
+            <button id="deleteRow" type="button" class="btn btn-danger mr-1">Eliminar </button>
 
             <thead>
 
@@ -26,7 +26,7 @@
                 <th>Morada</th>
                 <th>Cidade</th>
                 <th>Código Postal</th>
-                <th>Estado</th>
+                <th>Concelho</th>
                 <th>Pais</th>
             </tr>
             </thead>
@@ -82,7 +82,7 @@
                             <input type="text" class="form-control form-control-sm" id="form-city" name="form-city">
                         </div>
                         <div class="form-group">
-                            <label for="form-state">Estado</label>
+                            <label for="form-state">Concelho</label>
                             <input type="text" class="form-control form-control-sm" id="form-state" name="form-state">
                         </div>
                         <div class="form-group">
@@ -134,7 +134,7 @@
                             <input type="text" class="form-control form-control-sm" id="formAdd-city" name="formAdd-city">
                         </div>
                         <div class="form-group">
-                            <label for="formAdd-state">Estado</label>
+                            <label for="formAdd-state">Concelho</label>
                             <input type="text" class="form-control form-control-sm" id="formAdd-state" name="formAdd-state">
                         </div>
                         <div class="form-group">
@@ -191,7 +191,7 @@
                             <input type="text" class="form-control form-control-sm" id="formDelete-city" name="formDelete-city" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="formDelete-state">Estado</label>
+                            <label for="formDelete-state">Concelho</label>
                             <input type="text" class="form-control form-control-sm" id="formDelete-state" name="formDelete-state" readonly>
                         </div>
                         <div class="form-group">

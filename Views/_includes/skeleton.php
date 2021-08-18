@@ -27,7 +27,11 @@
 <section id="breadcrumb">
     <div class="container-fluid">
         <ol class="breadcrumb">
-            <li class="active">Ainda por fazer!!</li>
+            <?php if ($this->pageTitle === 'Dashboard'): ?>
+                <li class="active">Dashbaord</li>
+                <?php else: ?>
+                <li class="active">Dashbaord / <?php echo $this->pageTitle; ?> </li>
+                    <?php endif; ?>
         </ol>
     </div>
 </section>
@@ -76,14 +80,14 @@
                     </div>
                     <!--------------------------------------------------------------------------------------------------------------------->
                     <div class="card card-body bg-light dash-box">
-                        <h4>Disk Space Used</h4>
+                        <h4>Ocupação Maxima da Concessão</h4>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">75%</div>
                         </div>
-                        <h4>Bandwidth Used </h4>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
-                        </div>
+<!--                        <h4> </h4>-->
+<!--                        <div class="progress">-->
+<!--                            <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>-->
+<!--                        </div>-->
                     </div>
                     <!--------------------------------------------------------------------------------------------------------------------->
                 </div>
